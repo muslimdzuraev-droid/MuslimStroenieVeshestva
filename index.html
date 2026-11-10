@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Строение вещества | Урок физики</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --bg: #f4f5fa;
+    --card: #ffffff;
+    --text: #29334a;
+    --muted: #778198;
+    --blue: #667eea;
+    --purple: #9273dc;
+    --mint: #75c9b4;
+    --pink: #e9a3bd;
+    --yellow: #f2ca78;
+    --border: #e8eaf2;
+    --shadow: 0 12px 35px rgba(50,60,100,.07);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.75;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+header {
+    background: rgba(255,255,255,.93);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.logo span {
+    color: var(--text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-links button {
+    border: none;
+    background: transparent;
+    padding: 9px 12px;
+    color: var(--muted);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.nav-links button:hover {
+    background: #eef0ff;
+    color: var(--blue);
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(125deg,#dce6ff,#eee3fa,#d8f2ed);
+    padding: 90px 25px 85px;
+    text-align: center;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+}
+
+.hero::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -70px;
+}
+
+.hero::after {
+    width: 250px;
+    height: 250px;
+    right: -50px;
+    bottom: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: auto;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,.65);
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: #6876b8;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display',serif;
+    font-size: clamp(35px,6vw,65px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+    color: #313a59;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: auto;
+    color: #626d88;
+    font-size: 16px;
+}
+
+.teacher {
+    margin-top: 35px;
+    font-weight: 800;
+    color: #6876b8;
+    font-size: 14px;
+}
+
+.hero-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    background: #6879d9;
+    color: white;
+    font-weight: 800;
+    box-shadow: 0 8px 20px #6879d944;
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: #5264c4;
+}
+
+.container {
+    max-width: 1100px;
+    padding: 0 22px;
+    margin: auto;
+}
+
+.section {
+    padding: 65px 0;
+    scroll-margin-top: 85px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading small {
+    color: var(--purple);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display',serif;
+    font-size: 35px;
+    margin: 7px 0;
+    line-height: 1.3;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.card {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+
+.card p {
+    color: #606b82;
+    margin-bottom: 12px;
+}
+
+.card ul,
+.card ol {
+    padding-left: 25px;
+    color: #606b82;
+    margin: 12px 0;
+}
+
+.card li {
+    margin-bottom: 7px;
+}
+
+.definition {
+    border-left: 5px solid var(--blue);
+    background: #eef0ff;
+    padding: 19px 22px;
+    border-radius: 0 15px 15px 0;
+    margin: 20px 0;
+}
+
+.definition strong {
+    color: #5668c5;
+}
+
+.note {
+    background: #e8f7f1;
+    padding: 18px;
+    border-radius: 15px;
+    color: #427d69;
+    margin: 18px 0;
+}
+
+.warning {
+    background: #fff5e7;
+    padding: 18px;
+    border-radius: 15px;
+    color: #99703a;
+    margin: 18px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 18px;
+}
+
+.state-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.state-card:hover {
+    transform: translateY(-5px);
+}
+
+.state-icon {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.state-card h3 {
+    margin-bottom: 8px;
+}
+
+.state-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.state-card button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: #eef0ff;
+    color: #6879d9;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.particle-box {
+    background: #f2f3ff;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.particle-stage {
+    height: 230px;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    border: 2px solid #dce0fa;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #8d80e5;
+    border-radius: 50%;
+    box-shadow: 0 3px 8px #8d80e555;
+}
+
+.control-btn {
+    background: var(--blue);
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 12px;
+    margin: 5px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.control-btn:hover {
+    background: #5264c4;
+}
+
+.secondary-btn {
+    background: #e9eafa;
+    color: #6879d9;
+}
+
+.secondary-btn:hover {
+    background: #dfe2fb;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 500px;
+}
+
+th {
+    background: #eef0ff;
+    color: #5969bd;
+    text-align: left;
+}
+
+td,th {
+    padding: 14px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+}
+
+tr:hover td {
+    background: #fafaff;
+}
+
+.formula {
+    text-align: center;
+    background: #f1efff;
+    color: #6654ba;
+    font-size: 23px;
+    font-weight: 800;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 18px 0;
+}
+
+.diagram {
+    background: linear-gradient(140deg,#f0f2ff,#edf9f6);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.atom {
+    width: 190px;
+    height: 190px;
+    margin: 25px auto;
+    border-radius: 50%;
+    border: 2px dashed #9a91e8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 18s linear infinite;
+}
+
+.nucleus {
+    width: 60px;
+    height: 60px;
+    background: #e9a5ba;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    z-index: 2;
+    animation: rotate 18s linear infinite reverse;
+}
+
+.electron {
+    width: 16px;
+    height: 16px;
+    background: #667eea;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    left: 85px;
+    box-shadow: 0 0 12px #667eea;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+.molecule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.molecule {
+    background: white;
+    padding: 20px;
+    border-radius: 17px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.molecule strong {
+    font-size: 24px;
+    color: #6979d5;
+}
+
+.molecule p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.balls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    min-height: 42px;
+}
+
+.ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    margin-left: -3px;
+    border: 2px solid white;
+}
+
+.H { background: #8bb7ee; }
+.O { background: #e77c91; }
+.C { background: #59647d; }
+.N { background: #8c80db; }
+
+details {
+    background: white;
+    padding: 17px 20px;
+    border-radius: 14px;
+    margin: 12px 0;
+    border: 1px solid var(--border);
+}
+
+summary {
+    font-weight: 800;
+    cursor: pointer;
+    color: #5365c4;
+}
+
+details p {
+    color: var(--muted);
+    margin-top: 13px;
+}
+
+.quiz-question {
+    background: white;
+    padding: 24px;
+    border-radius: 17px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+}
+
+.quiz-question h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.option {
+    display: block;
+    background: #f6f7fc;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 11px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: .2s;
+}
+
+.option:hover {
+    background: #eef0ff;
+    border-color: #cbd0fa;
+}
+
+.option input {
+    margin-right: 10px;
+    accent-color: var(--blue);
+}
+
+.option.correct {
+    background: #e2f6ed;
+    border-color: #75c9a5;
+}
+
+.option.wrong {
+    background: #ffebed;
+    border-color: #e9a3a8;
+}
+
+.result {
+    display: none;
+    background: linear-gradient(130deg,#e8edff,#e2f7ef);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.result h3 {
+    font-size: 30px;
+    color: #6576d4;
+}
+
+.result p {
+    margin: 10px 0;
+}
+
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    z-index: 200;
+    background: transparent;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,#667eea,#75c9b4);
+}
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #e9eafa;
+    color: #68769b;
+}
+
+footer strong {
+    color: #596ac2;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    box-shadow: var(--shadow);
+    z-index: 90;
+}
+
+@media(max-width:700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 65px 18px;
+    }
+
+    .section {
+        padding: 45px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<header>
+    <div class="navbar">
+        <div class="logo">ATOM<span>LAB</span> ⚛</div>
+
+        <nav class="nav-links">
+            <button onclick="go('intro')">Главная</button>
+            <button onclick="go('states')">Состояния</button>
+            <button onclick="go('diffusion')">Диффузия</button>
+            <button onclick="go('atom')">Атом</button>
+            <button onclick="go('molecule')">Молекула</button>
+            <button onclick="go('quiz')">Тест</button>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="intro">
+    <div class="hero-content">
+        <div class="badge">ИНТЕРАКТИВНЫЙ УРОК ФИЗИКИ</div>
+
+        <h1>Строение вещества</h1>
+
+        <p>
+            Из чего состоит окружающий нас мир?
+            Почему лёд твёрдый, вода жидкая, а воздух невидимый?
+            Как устроены атомы и молекулы?
+            Давайте узнаем!
+        </p>
+
+        <div class="teacher">
+            ПРЕПОДАВАТЕЛЬ: ДЖУРАЕВ МУСЛИМ ТАРИЭЛЬЕВИЧ
+        </div>
+
+        <button class="hero-btn" onclick="go('intro-content')">
+            Начать изучение →
+        </button>
+    </div>
+</section>
+
+<main class="container">
+
+<!-- ВВЕДЕНИЕ -->
+
+<section class="section" id="intro-content">
+
+    <div class="section-heading">
+        <small>01 / ОСНОВЫ</small>
+        <h2>Что такое вещество?</h2>
+        <p>Начнём с самого главного — из чего состоит окружающий мир.</p>
+    </div>
+
+    <div class="card">
+        <h3>Определение вещества</h3>
+
+        <p>
+            Вещество — это то, из чего состоят окружающие нас физические тела.
+            Стол, книга, вода, воздух, камень и металл состоят из различных веществ.
+        </p>
+
+        <div class="definition">
+            <strong>Главное определение:</strong><br>
+            Все вещества состоят из мельчайших частиц:
+            атомов, молекул и ионов.
+        </div>
+
+        <h3>Примеры веществ</h3>
+
+        <ul>
+            <li>Стакан — стекло.</li>
+            <li>Ложка — металл.</li>
+            <li>Вода — H₂O.</li>
+            <li>Сахар — сахароза.</li>
+            <li>Воздух — смесь различных газов.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Три основных положения молекулярного строения</h3>
+
+        <p><b>1. Все вещества состоят из частиц.</b></p>
+        Даже маленькая капля воды содержит огромное количество молекул.
+
+        <p><b>2. Частицы постоянно движутся.</b></p>
+        В твёрдых телах они колеблются, в жидкостях и газах могут перемещаться.
+
+        <p><b>3. Частицы взаимодействуют друг с другом.</b></p>
+        Они притягиваются и отталкиваются.
+    </div>
+
+</section>
+
+<!-- АГРЕГАТНЫЕ СОСТОЯНИЯ -->
+
+<section class="section" id="states">
+
+    <div class="section-heading">
+        <small>02 / ФИЗИКА</small>
+        <h2>Агрегатные состояния вещества</h2>
+        <p>Одно вещество может существовать в разных состояниях.</p>
+    </div>
+
+    <div class="card">
+        <div class="definition">
+            <strong>Агрегатное состояние</strong> — физическое состояние
+            вещества, зависящее от расположения, движения и взаимодействия его частиц.
+        </div>
+
+        <p>Основные агрегатные состояния:</p>
+
+        <div class="grid">
+
+            <div class="state-card">
+                <div class="state-icon">🧊</div>
+                <h3>Твёрдое</h3>
+                <p>Сохраняет собственную форму и объём.</p>
+                <button onclick="showState('solid')">Подробнее</button>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">💧</div>
+                <h3>Жидкое</h3>
+                <p>Сохраняет объём, но меняет форму.</p>
+                <button onclick="showState('liquid')">Подробнее</button>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">☁️</div>
+                <h3>Газообразное</h3>
+                <p>Не сохраняет ни форму, ни объём.</p>
+                <button onclick="showState('gas')">Подробнее</button>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">⚡</div>
+                <h3>Плазма</h3>
+                <p>Состояние с большим количеством заряженных частиц.</p>
+                <button onclick="showState('plasma')">Подробнее</button>
+            </div>
+
+        </div>
+
+        <div class="definition" id="stateInfo">
+            Выберите состояние, чтобы прочитать подробное объяснение.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Как расположены частицы?</h3>
+
+        <p>
+            Посмотрите на интерактивную модель.
+            Переключайте состояния и наблюдайте,
+            как меняется расположение частиц.
+        </p>
+
+        <div class="particle-box">
+
+            <div class="particle-stage" id="particleStage"></div>
+
+            <button class="control-btn" onclick="setParticles('solid')">
+                Твёрдое
+            </button>
+
+            <button class="control-btn" onclick="setParticles('liquid')">
+                Жидкое
+            </button>
+
+            <button class="control-btn" onclick="setParticles('gas')">
+                Газ
+            </button>
+
+            <p id="particleDescription" style="margin-top:15px;color:#68769b">
+                Выберите агрегатное состояние.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Сравнение агрегатных состояний</h3>
+
+        <div class="table-wrap">
+            <table>
+                <tr>
+                    <th>Свойство</th>
+                    <th>Твёрдое</th>
+                    <th>Жидкое</th>
+                    <th>Газ</th>
+                </tr>
+
+                <tr>
+                    <td>Форма</td>
+                    <td>Постоянная</td>
+                    <td>Меняется</td>
+                    <td>Меняется</td>
+                </tr>
+
+                <tr>
+                    <td>Объём</td>
+                    <td>Постоянный</td>
+                    <td>Постоянный</td>
+                    <td>Меняется</td>
+                </tr>
+
+                <tr>
+                    <td>Частицы</td>
+                    <td>Близко</td>
+                    <td>Близко</td>
+                    <td>Далеко</td>
+                </tr>
+
+                <tr>
+                    <td>Движение</td>
+                    <td>Колебания</td>
+                    <td>Перемещение</td>
+                    <td>Свободное</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+<!-- ПЕРЕХОДЫ -->
+
+<section class="section" id="transitions">
+
+    <div class="section-heading">
+        <small>03 / ИЗМЕНЕНИЕ СОСТОЯНИЙ</small>
+        <h2>Переходы между состояниями</h2>
+    </div>
+
+    <div class="card">
+
+        <p>
+            При нагревании и охлаждении вещества могут переходить
+            из одного агрегатного состояния в другое.
+        </p>
+
+        <div class="grid">
+
+            <div class="state-card">
+                <div class="state-icon">🧊 → 💧</div>
+                <h3>Плавление</h3>
+                <p>Переход из твёрдого состояния в жидкое.</p>
+                <p><b>Пример:</b> лёд тает.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">💧 → 🧊</div>
+                <h3>Кристаллизация</h3>
+                <p>Переход из жидкого состояния в твёрдое.</p>
+                <p><b>Пример:</b> вода замерзает.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">💧 → ☁️</div>
+                <h3>Испарение</h3>
+                <p>Переход жидкости в газ с поверхности.</p>
+                <p><b>Пример:</b> высыхание одежды.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">☁️ → 💧</div>
+                <h3>Конденсация</h3>
+                <p>Переход газа в жидкость.</p>
+                <p><b>Пример:</b> капли на стекле.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">♨️</div>
+                <h3>Кипение</h3>
+                <p>Интенсивное парообразование во всём объёме жидкости.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">❄️</div>
+                <h3>Сублимация</h3>
+                <p>Переход из твёрдого состояния сразу в газообразное.</p>
+            </div>
+
+        </div>
+
+        <div class="note">
+            При нагревании частицы обычно движутся интенсивнее,
+            а при охлаждении их движение становится менее интенсивным.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ДИФФУЗИЯ -->
+
+<section class="section" id="diffusion">
+
+    <div class="section-heading">
+        <small>04 / ДВИЖЕНИЕ ЧАСТИЦ</small>
+        <h2>Диффузия</h2>
+        <p>Почему вещества смешиваются самостоятельно?</p>
+    </div>
+
+    <div class="card">
+
+        <div class="definition">
+            <strong>Диффузия</strong> — взаимное проникновение частиц
+            одного вещества между частицами другого вещества
+            вследствие их непрерывного хаотического движения.
+        </div>
+
+        <h3>Примеры диффузии</h3>
+
+        <ul>
+            <li>Запах духов распространяется по комнате.</li>
+            <li>Краситель постепенно окрашивает воду.</li>
+            <li>Запах еды распространяется по квартире.</li>
+            <li>Чай окрашивает воду в стакане.</li>
+        </ul>
+
+        <div class="diagram">
+            <div style="font-size:60px">🌸 ➜ 🌬️ ➜ 🏠</div>
+            <h3>Распространение запаха</h3>
+            <p>
+                Частицы пахучего вещества перемещаются
+                и распространяются в воздухе.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Как происходит диффузия?</h3>
+
+        <p>
+            Представьте стакан с чистой водой.
+            Если добавить каплю красителя,
+            сначала он будет находиться в одном месте.
+            Затем частицы постепенно распространятся по воде.
+        </p>
+
+        <div class="grid">
+            <div class="state-card">
+                <div class="state-icon">🟣</div>
+                <h3>Сначала</h3>
+                <p>Частицы красителя сосредоточены в одном месте.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">🟣💧</div>
+                <h3>Затем</h3>
+                <p>Частицы постепенно перемещаются.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">💜</div>
+                <h3>В итоге</h3>
+                <p>Краситель распространяется по воде.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>От чего зависит скорость диффузии?</h3>
+
+        <p>
+            Диффузия происходит быстрее при повышении температуры.
+            Частицы получают больше энергии и движутся интенсивнее.
+        </p>
+
+        <div class="definition">
+            В газах диффузия обычно происходит быстрее,
+            в жидкостях медленнее,
+            а в твёрдых телах очень медленно.
+        </div>
+
+        <h3>Практическое значение</h3>
+
+        <ul>
+            <li>Перемещение кислорода и углекислого газа в организме.</li>
+            <li>Распространение запахов.</li>
+            <li>Смешивание веществ при приготовлении пищи.</li>
+            <li>Перемещение некоторых веществ через клеточные мембраны.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- АТОМ -->
+
+<section class="section" id="atom">
+
+    <div class="section-heading">
+        <small>05 / МИКРОМИР</small>
+        <h2>Строение атома</h2>
+        <p>Изучаем мельчайшие частицы химических элементов.</p>
+    </div>
+
+    <div class="card">
+
+        <div class="definition">
+            <strong>Атом</strong> — наименьшая электрически нейтральная
+            частица химического элемента, сохраняющая его химические свойства.
+        </div>
+
+        <p>
+            Атом состоит из двух основных частей:
+            ядра и электронной оболочки.
+        </p>
+
+        <div class="diagram">
+
+            <h3>Упрощённая модель атома</h3>
+
+            <div class="atom">
+                <div class="nucleus">ЯДРО</div>
+                <div class="electron"></div>
+            </div>
+
+            <p>Ядро находится в центре, а электроны образуют электронную оболочку.</p>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Три основные частицы атома</h3>
+
+        <div class="grid">
+
+            <div class="state-card">
+                <div class="state-icon">🔴</div>
+                <h3>Протон</h3>
+                <p>Положительный заряд (+).</p>
+                <p>Находится в ядре.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">⚪</div>
+                <h3>Нейтрон</h3>
+                <p>Не имеет заряда (0).</p>
+                <p>Находится в ядре.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">🔵</div>
+                <h3>Электрон</h3>
+                <p>Отрицательный заряд (−).</p>
+                <p>Находится в электронной оболочке.</p>
+            </div>
+
+        </div>
+
+        <div class="warning">
+            Почти вся масса атома сосредоточена в ядре.
+            Электроны имеют очень маленькую массу по сравнению
+            с протонами и нейтронами.
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Почему атом нейтрален?</h3>
+
+        <p>
+            В обычном нейтральном атоме количество протонов
+            равно количеству электронов.
+        </p>
+
+        <div class="formula">
+            +6 − 6 = 0
+        </div>
+
+        <p>
+            Например, у атома углерода 6 протонов и 6 электронов.
+            Положительные и отрицательные заряды компенсируются.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Примеры строения атомов</h3>
+
+        <div class="table-wrap">
+
+            <table>
+                <tr>
+                    <th>Элемент</th>
+                    <th>Протоны</th>
+                    <th>Нейтроны</th>
+                    <th>Электроны</th>
+                </tr>
+
+                <tr><td>Водород</td><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>Гелий</td><td>2</td><td>2</td><td>2</td></tr>
+                <tr><td>Углерод</td><td>6</td><td>6</td><td>6</td></tr>
+                <tr><td>Кислород</td><td>8</td><td>8</td><td>8</td></tr>
+                <tr><td>Натрий</td><td>11</td><td>12</td><td>11</td></tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Как рассчитать количество нейтронов?</h3>
+
+        <p>
+            Массовое число — это сумма протонов и нейтронов
+            в ядре атома.
+        </p>
+
+        <div class="formula">
+            N = A − Z
+        </div>
+
+        <p>
+            N — число нейтронов.<br>
+            A — массовое число.<br>
+            Z — порядковый номер элемента.
+        </p>
+
+        <h3>Пример: атом кислорода</h3>
+
+        <p>
+            Массовое число кислорода — 16.
+            Порядковый номер — 8.
+        </p>
+
+        <div class="formula">
+            16 − 8 = 8 нейтронов
+        </div>
+
+        <div class="note">
+            Ответ: 8 протонов, 8 электронов и 8 нейтронов.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- МОЛЕКУЛЫ -->
+
+<section class="section" id="molecule">
+
+    <div class="section-heading">
+        <small>06 / ХИМИЯ</small>
+        <h2>Строение молекулы</h2>
+        <p>Как атомы объединяются и образуют вещества?</p>
+    </div>
+
+    <div class="card">
+
+        <div class="definition">
+            <strong>Молекула</strong> — электрически нейтральная частица,
+            состоящая из двух или более связанных между собой атомов.
+        </div>
+
+        <p>
+            Атомы могут соединяться благодаря химическим связям.
+            В результате образуются молекулы.
+        </p>
+
+        <p>
+            Например, вода состоит из двух атомов водорода
+            и одного атома кислорода.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Примеры молекул</h3>
+
+        <div class="molecule-grid">
+
+            <div class="molecule">
+                <div class="balls">
+                    <div class="ball H">H</div>
+                    <div class="ball O">O</div>
+                    <div class="ball H">H</div>
+                </div>
+                <strong>H₂O</strong>
+                <p>Вода</p>
+                <p>2 водорода + 1 кислород</p>
+            </div>
+
+            <div class="molecule">
+                <div class="balls">
+                    <div class="ball O">O</div>
+                    <div class="ball O">O</div>
+                </div>
+                <strong>O₂</strong>
+                <p>Кислород</p>
+                <p>2 атома кислорода</p>
+            </div>
+
+            <div class="molecule">
+                <div class="balls">
+                    <div class="ball O">O</div>
+                    <div class="ball C">C</div>
+                    <div class="ball O">O</div>
+                </div>
+                <strong>CO₂</strong>
+                <p>Углекислый газ</p>
+                <p>1 углерод + 2 кислорода</p>
+            </div>
+
+            <div class="molecule">
+                <div class="balls">
+                    <div class="ball H">H</div>
+                    <div class="ball N">N</div>
+                    <div class="ball H">H</div>
+                    <div class="ball H">H</div>
+                </div>
+                <strong>NH₃</strong>
+                <p>Аммиак</p>
+                <p>1 азот + 3 водорода</p>
+            </div>
+
+            <div class="molecule">
+                <div class="balls">
+                    <div class="ball H">H</div>
+                    <div class="ball C">C</div>
+                    <div class="ball H">H</div>
+                    <div class="ball H">H</div>
+                    <div class="ball H">H</div>
+                </div>
+                <strong>CH₄</strong>
+                <p>Метан</p>
+                <p>1 углерод + 4 водорода</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Чем атом отличается от молекулы?</h3>
+
+        <div class="grid">
+
+            <div class="state-card">
+                <div class="state-icon">🔵</div>
+                <h3>Атом</h3>
+                <p>Отдельная частица химического элемента.</p>
+                <p><b>Пример:</b> O.</p>
+            </div>
+
+            <div class="state-card">
+                <div class="state-icon">🔵🔵</div>
+                <h3>Молекула</h3>
+                <p>Несколько соединённых атомов.</p>
+                <p><b>Пример:</b> O₂.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Как читать химические формулы?</h3>
+
+        <p>
+            Химическая формула показывает, какие элементы
+            входят в состав вещества и сколько атомов
+            каждого элемента содержится в формульной единице
+            или молекуле.
+        </p>
+
+        <div class="definition">
+            H₂O — два атома водорода и один атом кислорода.
+        </div>
+
+        <div class="definition">
+            CO₂ — один атом углерода и два атома кислорода.
+        </div>
+
+        <div class="definition">
+            NH₃ — один атом азота и три атома водорода.
+        </div>
+
+        <h3>Что означает цифра перед формулой?</h3>
+
+        <p>
+            В записи 2H₂O цифра 2 означает две молекулы воды.
+            В каждой молекуле содержится два атома водорода
+            и один атом кислорода.
+        </p>
+
+        <div class="formula">
+            2H₂O = 4H + 2O
+        </div>
+
+        <div class="note">
+            Маленькая цифра справа показывает количество
+            атомов элемента в одной молекуле.
+            Большая цифра перед формулой показывает количество
+            молекул или формульных единиц.
+        </div>
+
+        <div class="warning">
+            Важно: не все вещества состоят из отдельных молекул.
+            Например, поваренная соль и металлы имеют другие
+            типы строения.
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ПОВТОРЕНИЕ -->
+
+<section class="section" id="summary">
+
+    <div class="section-heading">
+        <small>07 / ПОВТОРЕНИЕ</small>
+        <h2>Главное, что нужно запомнить</h2>
+    </div>
+
+    <div class="card">
+
+        <div class="table-wrap">
+
+            <table>
+                <tr>
+                    <th>Понятие</th>
+                    <th>Определение</th>
+                </tr>
+
+                <tr><td>Вещество</td><td>То, из чего состоят физические тела.</td></tr>
+                <tr><td>Атом</td><td>Частица химического элемента.</td></tr>
+                <tr><td>Молекула</td><td>Частица из связанных атомов.</td></tr>
+                <tr><td>Диффузия</td><td>Взаимное проникновение частиц веществ.</td></tr>
+                <tr><td>Протон</td><td>Положительно заряженная частица.</td></tr>
+                <tr><td>Нейтрон</td><td>Нейтральная частица.</td></tr>
+                <tr><td>Электрон</td><td>Отрицательно заряженная частица.</td></tr>
+                <tr><td>Ядро</td><td>Центральная часть атома.</td></tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Интересные факты</h3>
+
+        <ul>
+            <li>В одной капле воды находится огромное количество молекул.</li>
+            <li>Воздух состоит из смеси различных газов.</li>
+            <li>Запах еды распространяется благодаря диффузии.</li>
+            <li>Почти вся масса атома сосредоточена в ядре.</li>
+            <li>Молекула воды содержит три атома.</li>
+            <li>Плазма встречается на Солнце и в молниях.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ПРАКТИКА -->
+
+<section class="section" id="practice">
+
+    <div class="section-heading">
+        <small>08 / ПРАКТИЧЕСКАЯ РАБОТА</small>
+        <h2>Закрепим полученные знания</h2>
+    </div>
+
+    <div class="card">
+
+        <h3>Задание 1. Определи агрегатное состояние</h3>
+
+        <p>Укажи состояние каждого вещества.</p>
+
+        <ol>
+            <li>Лёд.</li>
+            <li>Кислород.</li>
+            <li>Молоко.</li>
+            <li>Железо.</li>
+            <li>Водяной пар.</li>
+            <li>Растительное масло.</li>
+            <li>Углекислый газ.</li>
+            <li>Соль.</li>
+        </ol>
+
+        <details>
+            <summary>Показать ответы</summary>
+            <p>
+                1. Твёрдое.<br>
+                2. Газообразное.<br>
+                3. Жидкое.<br>
+                4. Твёрдое.<br>
+                5. Газообразное.<br>
+                6. Жидкое.<br>
+                7. Газообразное.<br>
+                8. Твёрдое.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Задание 2. Посчитай количество атомов</h3>
+
+        <ol>
+            <li>H₂O</li>
+            <li>CO₂</li>
+            <li>O₂</li>
+            <li>NH₃</li>
+            <li>CH₄</li>
+            <li>2H₂O</li>
+            <li>3CO₂</li>
+        </ol>
+
+        <details>
+            <summary>Показать ответы</summary>
+            <p>
+                1. 3 атома.<br>
+                2. 3 атома.<br>
+                3. 2 атома.<br>
+                4. 4 атома.<br>
+                5. 5 атомов.<br>
+                6. 6 атомов всего.<br>
+                7. 9 атомов всего.
+            </p>
+        </details>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Задание 3. Найди частицы атома</h3>
+
+        <p>
+            У атома углерода массовое число 12,
+            порядковый номер 6.
+        </p>
+
+        <p>Определи количество протонов, нейтронов и электронов.</p>
+
+        <details>
+            <summary>Показать решение</summary>
+
+            <p>
+                Протоны = 6.<br>
+                Электроны = 6.<br>
+                Нейтроны = 12 − 6 = 6.
+            </p>
+
+        </details>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Задание 4. Подумай и объясни</h3>
+
+        <ol>
+            <li>Почему лёд не принимает форму стакана?</li>
+            <li>Почему вода принимает форму стакана?</li>
+            <li>Почему газ заполняет всю комнату?</li>
+            <li>Почему запах духов распространяется по помещению?</li>
+            <li>Почему диффузия быстрее происходит в горячей воде?</li>
+            <li>Почему зимой лужи замерзают?</li>
+        </ol>
+
+    </div>
+
+</section>
+
+<!-- ТЕСТ -->
+
+<section class="section" id="quiz">
+
+    <div class="section-heading">
+        <small>09 / ПРОВЕРКА ЗНАНИЙ</small>
+        <h2>Итоговый тест</h2>
+        <p>20 вопросов по всей изученной теме.</p>
+    </div>
+
+    <div class="card">
+
+        <h3>Инструкция</h3>
+
+        <p>
+            В каждом вопросе выбери один правильный ответ.
+            После выполнения нажми кнопку «Проверить результат».
+        </p>
+
+        <div class="note">
+            За каждый правильный ответ начисляется 1 балл.
+            Максимальный результат — 20 баллов.
+        </div>
+
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <button class="control-btn" onclick="checkQuiz()">
+        Проверить результат
+    </button>
+
+    <button class="control-btn secondary-btn" onclick="resetQuiz()">
+        Пройти заново
+    </button>
+
+    <div class="result" id="result">
+        <h3 id="score"></h3>
+        <p id="resultText"></p>
+        <p id="resultGrade" style="font-weight:800"></p>
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div style="font-size:35px;margin-bottom:10px">⚛</div>
+
+    <h2>ATOM LAB</h2>
+
+    <p>Интерактивный образовательный урок по физике и химии.</p>
+
+    <p style="margin-top:15px">
+        <strong>Джураев Муслим Тариэльевич</strong>
+    </p>
+
+    <p style="font-size:12px;margin-top:10px">
+        Строение вещества • Атомы • Молекулы • Диффузия
+    </p>
+
+</footer>
+
+<button class="top-button" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+<script>
+
+// ПЕРЕХОДЫ МЕЖДУ РАЗДЕЛАМИ
+
+function go(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+// ПОДРОБНОЕ ОПИСАНИЕ АГРЕГАТНЫХ СОСТОЯНИЙ
+
+const states = {
+
+    solid: `
+        <h3>🧊 Твёрдое состояние</h3>
+        <p>
+        Твёрдые тела сохраняют собственную форму и объём.
+        Частицы находятся близко друг к другу и колеблются
+        около определённых положений.
+        </p>
+        <p><b>Примеры:</b> лёд, железо, камень, дерево.</p>
+    `,
+
+    liquid: `
+        <h3>💧 Жидкое состояние</h3>
+        <p>
+        Жидкости сохраняют объём, но не имеют собственной
+        постоянной формы. Частицы находятся близко друг
+        к другу и перемещаются относительно друг друга.
+        </p>
+        <p><b>Примеры:</b> вода, масло, молоко.</p>
+    `,
+
+    gas: `
+        <h3>☁️ Газообразное состояние</h3>
+        <p>
+        Газы не сохраняют форму и объём.
+        Частицы находятся на сравнительно больших расстояниях
+        и свободно движутся.
+        </p>
+        <p><b>Примеры:</b> кислород, азот, углекислый газ.</p>
+    `,
+
+    plasma: `
+        <h3>⚡ Плазма</h3>
+        <p>
+        Плазма — состояние вещества, содержащее
+        свободные электроны и ионы.
+        </p>
+        <p><b>Примеры:</b> Солнце, звёзды, молнии.</p>
+    `
+
+};
+
+function showState(type) {
+    document.getElementById("stateInfo").innerHTML = states[type];
+}
+
+
+// ИНТЕРАКТИВНАЯ МОДЕЛЬ ЧАСТИЦ
+
+function setParticles(type) {
+
+    const stage = document.getElementById("particleStage");
+
+    const description = document.getElementById("particleDescription");
+
+    stage.innerHTML = "";
+
+    let positions = [];
+
+    if(type === "solid") {
+
+        for(let row=0;row<5;row++) {
+            for(let col=0;col<7;col++) {
+                positions.push({
+                    x: 19 + col*35,
+                    y: 23 + row*37
+                });
+            }
+        }
+
+        description.innerText =
+        "Твёрдое тело: частицы расположены близко и упорядоченно.";
+
+    }
+
+    if(type === "liquid") {
+
+        for(let i=0;i<32;i++) {
+
+            positions.push({
+                x: 15 + Math.random()*85,
+                y: 15 + Math.random()*65
+            });
+
+        }
+
+        description.innerText =
+        "Жидкость: частицы близко друг к другу, но расположены менее упорядоченно.";
+
+    }
+
+    if(type === "gas") {
+
+        for(let i=0;i<32;i++) {
+
+            positions.push({
+                x: 5 + Math.random()*90,
+                y: 5 + Math.random()*85
+            });
+
+        }
+
+        description.innerText =
+        "Газ: частицы находятся далеко друг от друга и свободно перемещаются.";
+
+    }
+
+    positions.forEach(pos => {
+
+        const dot = document.createElement("div");
+
+        dot.className = "particle";
+
+        dot.style.left = pos.x + "%";
+        dot.style.top = pos.y + "%";
+
+        if(type === "gas") {
+
+            dot.animate([
+                {
+                    transform:"translate(0,0)"
+                },
+                {
+                    transform:
+                    `translate(${Math.random()*35-17}px,${Math.random()*35-17}px)`
+                }
+            ],{
+                duration:1200+Math.random()*1500,
+                iterations:Infinity,
+                direction:"alternate"
+            });
+
+        }
+
+        stage.appendChild(dot);
+
+    });
+
+}
+
+setParticles("solid");
+
+
+// ВОПРОСЫ ТЕСТА
+
+const questions = [
+
+{
+q:"Из чего состоят все вещества?",
+a:["Только из воды","Из мельчайших частиц","Только из воздуха","Из света"],
+correct:1
+},
+
+{
+q:"Какие три основных агрегатных состояния изучают в школьной физике?",
+a:["Твёрдое, жидкое, газообразное","Холодное, горячее, тёплое","Лёгкое, тяжёлое, плотное","Прозрачное, непрозрачное, жидкое"],
+correct:0
+},
+
+{
+q:"Какое состояние сохраняет форму и объём?",
+a:["Газообразное","Жидкое","Твёрдое","Плазма"],
+correct:2
+},
+
+{
+q:"Почему жидкость принимает форму сосуда?",
+a:["Частицы могут перемещаться относительно друг друга","Частицы полностью неподвижны","Жидкость не имеет частиц","Жидкость всегда становится газом"],
+correct:0
+},
+
+{
+q:"Какое состояние не сохраняет ни форму, ни объём?",
+a:["Твёрдое","Жидкое","Кристаллическое","Газообразное"],
+correct:3
+},
+
+{
+q:"Что такое диффузия?",
+a:["Разрушение вещества","Взаимное проникновение частиц веществ","Замерзание воды","Изменение цвета"],
+correct:1
+},
+
+{
+q:"Почему запах духов распространяется по комнате?",
+a:["Из-за диффузии","Из-за кристаллизации","Из-за плавления","Из-за затвердевания"],
+correct:0
+},
+
+{
+q:"Где диффузия обычно происходит быстрее?",
+a:["В твёрдых телах","В газах","Во всех одинаково","Нигде"],
+correct:1
+},
+
+{
+q:"Как повышение температуры обычно влияет на диффузию?",
+a:["Ускоряет её","Полностью прекращает","Не влияет","Превращает жидкость в твёрдое тело"],
+correct:0
+},
+
+{
+q:"Что такое атом?",
+a:["Большое физическое тело","Частица химического элемента","Агрегатное состояние","Смесь веществ"],
+correct:1
+},
+
+{
+q:"Из чего состоит ядро атома?",
+a:["Из электронов и молекул","Из протонов и нейтронов","Только из электронов","Только из молекул"],
+correct:1
+},
+
+{
+q:"Какой заряд имеет протон?",
+a:["Отрицательный","Нейтральный","Положительный","Переменный"],
+correct:2
+},
+
+{
+q:"Какой заряд имеет электрон?",
+a:["Положительный","Отрицательный","Нейтральный","Не имеет заряда"],
+correct:1
+},
+
+{
+q:"Какая частица не имеет электрического заряда?",
+a:["Протон","Электрон","Нейтрон","Ион"],
+correct:2
+},
+
+{
+q:"Сколько электронов в нейтральном атоме кислорода, если у него 8 протонов?",
+a:["6","8","10","16"],
+correct:1
+},
+
+{
+q:"Что такое молекула?",
+a:["Частица из связанных атомов","Центральная часть атома","Отдельный электрон","Только положительная частица"],
+correct:0
+},
+
+{
+q:"Сколько атомов содержится в H₂O?",
+a:["1","2","3","4"],
+correct:2
+},
+
+{
+q:"Сколько атомов кислорода в CO₂?",
+a:["1","2","3","4"],
+correct:1
+},
+
+{
+q:"Что означает цифра 2 перед формулой 2H₂O?",
+a:["Два атома кислорода","Две молекулы воды","Два атома углерода","Два электрона"],
+correct:1
+},
+
+{
+q:"Как называется переход вещества из газа в жидкость?",
+a:["Плавление","Испарение","Конденсация","Кристаллизация"],
+correct:2
+}
+
+];
+
+
+// СОЗДАНИЕ ТЕСТА
+
+const quizContainer = document.getElementById("quizContainer");
+
+function renderQuiz() {
+
+    quizContainer.innerHTML = "";
+
+    questions.forEach((question,index) => {
+
+        const box = document.createElement("div");
+
+        box.className = "quiz-question";
+
+        let html = `
+            <h3>${index+1}. ${question.q}</h3>
+        `;
+
+        question.a.forEach((answer,i) => {
+
+            html += `
+                <label class="option">
+                    <input type="radio"
+                    name="question${index}"
+                    value="${i}">
+                    ${String.fromCharCode(1040+i)}. ${answer}
+                </label>
+            `;
+
+        });
+
+        box.innerHTML = html;
+
+        quizContainer.appendChild(box);
+
+    });
+
+}
+
+renderQuiz();
+
+
+// ПРОВЕРКА РЕЗУЛЬТАТОВ
+
+let completed = false;
+
+function checkQuiz() {
+
+    if(completed) return;
+
+    let score = 0;
+
+    let unanswered = 0;
+
+    questions.forEach((question,index) => {
+
+        const selected = document.querySelector(
+            `input[name="question${index}"]:checked`
+        );
+
+        const options = document.querySelectorAll(
+            `input[name="question${index}"]`
+        );
+
+        if(!selected) {
+            unanswered++;
+            return;
+        }
+
+        const answer = Number(selected.value);
+
+        if(answer === question.correct) {
+            score++;
+        }
+
+        options.forEach((input,i) => {
+
+            input.disabled = true;
+
+            const label = input.parentElement;
+
+            if(i === question.correct) {
+                label.classList.add("correct");
+            }
+
+            if(i === answer && answer !== question.correct) {
+                label.classList.add("wrong");
+            }
+
+        });
+
+    });
+
+    if(unanswered > 0) {
+
+        alert(
+            "Ты ответил не на все вопросы. Осталось: " +
+            unanswered
+        );
+
+        questions.forEach((question,index) => {
+
+            const selected = document.querySelector(
+                `input[name="question${index}"]:checked`
+            );
+
+            if(!selected) {
+
+                document.querySelectorAll(
+                    `input[name="question${index}"]`
+                ).forEach(input => input.disabled = false);
+
+            }
+
+        });
+
+        return;
+
+    }
+
+    completed = true;
+
+    let grade = "";
+    let message = "";
+
+    if(score >= 18) {
+        grade = "Оценка: 5 — Отлично!";
+        message = "Прекрасный результат! Ты отлично усвоил тему.";
+    }
+
+    else if(score >= 15) {
+        grade = "Оценка: 4 — Хорошо!";
+        message = "Хорошая работа! Повтори некоторые разделы.";
+    }
+
+    else if(score >= 10) {
+        grade = "Оценка: 3 — Удовлетворительно.";
+        message = "Стоит ещё раз изучить материал.";
+    }
+
+    else {
+        grade = "Оценка: 2 — Нужно повторить.";
+        message = "Вернись к теории и попробуй снова.";
+    }
+
+    document.getElementById("score").innerText =
+        score + " / 20 баллов";
+
+    document.getElementById("resultText").innerText =
+        message;
+
+    document.getElementById("resultGrade").innerText =
+        grade;
+
+    const result = document.getElementById("result");
+
+    result.style.display = "block";
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+// ПОВТОРНОЕ ПРОХОЖДЕНИЕ ТЕСТА
+
+function resetQuiz() {
+
+    completed = false;
+
+    document.getElementById("result").style.display = "none";
+
+    renderQuiz();
+
+    document.getElementById("quiz").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+// ИНДИКАТОР ПРОКРУТКИ
+
+window.addEventListener("scroll",() => {
+
+    const scrollTop = window.scrollY;
+
+    const docHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const percent = docHeight > 0
+        ? (scrollTop/docHeight)*100
+        : 0;
+
+    document.getElementById("progressBar").style.width =
+        percent + "%";
+
+});
+
+</script>
+
+</body>
+</html>
